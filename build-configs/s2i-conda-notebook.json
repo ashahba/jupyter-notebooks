@@ -46,7 +46,7 @@
                 "strategy": {
                     "type": "Docker",
                     "dockerStrategy": {
-                        "dockerfilePath": "overlays/python38"
+                        "dockerfilePath": "overlays/python38/Dockerfile"
                     }
                 },
                 "output": {
