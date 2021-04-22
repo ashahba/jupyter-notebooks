@@ -50,7 +50,13 @@
                         "from": {
                             "kind": "ImageStreamTag",
                             "name": "s2i-minimal-notebook:v0.0.13"
-                        }
+                        },
+                        "env": [
+                          {
+                            "name": "THOTH_ADVISE",
+                            "value": "0"
+                          }
+                        ]
                     }
                 },
                 "output": {
