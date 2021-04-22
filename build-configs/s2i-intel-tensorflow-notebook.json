@@ -53,7 +53,15 @@
                         },
                         "env": [
                           {
+                            "name": "ENABLE_PIPENV",
+                            "value": "0"
+                          },
+                          {
                             "name": "THOTH_ADVISE",
+                            "value": "0"
+                          },
+                          {
+                            "name": "THOTH_DRY_RUN",
                             "value": "0"
                           }
                         ]
