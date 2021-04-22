@@ -2,12 +2,9 @@
 
 set -eox pipefail
 
-APP_ROOT=${APP_ROOT:-/opt/app-root/src}
-
 # Run the original Python S2I assemble script to install packages.
 
-#/usr/libexec/s2i/assemble
-/opt/app-root/builder/assemble
+/usr/libexec/s2i/assemble
 
 #jupyter lab build
 
