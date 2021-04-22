@@ -39,8 +39,8 @@
                 "source": {
                     "type": "Git",
                     "git": {
-                        "uri": "https://github.com/ashahba/jupyter-notebooks",
-                        "ref": "ashahba/intel-tensorflow"
+                        "uri": "https://github.com/kkasravi/jupyter-notebooks",
+                        "ref": "kkasravi/intel-tensorflow"
                     },
                     "contextDir": "intel-tensorflow-notebook"
                 },
