@@ -2,6 +2,8 @@
 
 set -eox pipefail
 
+rm -rf /opt/app-root/src/.s2i
+
 # Run the original Python S2I assemble script to install packages.
 
 /usr/libexec/s2i/assemble
