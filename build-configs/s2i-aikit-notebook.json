@@ -49,7 +49,7 @@
                     "sourceStrategy": {
                         "from": {
                             "kind": "ImageStreamTag",
-                            "name": "s2i-thoth-ubi8-py38:latest"
+                            "name": "s2i-minimal-notebook:v0.0.13"
                         },
                         "env": [
                           {
