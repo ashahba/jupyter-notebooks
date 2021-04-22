@@ -58,7 +58,7 @@
                           },
                           {
                             "name": "MICROPIPENV",
-                            "value": "0"
+                            "value": "1"
                           },
                           {
                             "name": "THOTH_ADVISE",
