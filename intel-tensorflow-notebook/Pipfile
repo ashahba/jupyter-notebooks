@@ -23,6 +23,7 @@ seaborn = "*"
 statsmodels = "*"
 sympy = "*"
 vincent = "*"
+widgetsnbextension = "*"
 xlrd = "*"
 daal = ">=2021"
 daal4py = ">=2021"
@@ -36,4 +37,4 @@ SQLAlchemy = "*"
 [dev-packages]
 
 [requires]
-python_version = "3.6"
+python_version = "3.7"
