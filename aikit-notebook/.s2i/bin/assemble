@@ -8,6 +8,6 @@ rm -rf /opt/app-root/src/.s2i
 
 /usr/libexec/s2i/assemble
 
-#jupyter lab build
+jupyter lab build
 
 fix-permissions /opt/app-root

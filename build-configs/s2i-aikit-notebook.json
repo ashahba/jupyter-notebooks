@@ -49,7 +49,7 @@
                     "sourceStrategy": {
                         "from": {
                             "kind": "ImageStreamTag",
-                            "name": "s2i-lab-elyra:v0.0.7"
+                            "name": "s2i-thoth-ubi8-py38:latest"
                         },
                         "env": [
                           {
@@ -71,6 +71,10 @@
                           {
                             "name": "THOTH_FROM_MASTER",
                             "value": "0"
+                          },
+                          {
+                            "name": "THOTH_ERROR_FALLBACK",
+                            "value": "1"
                           }
                         ]
                     }
