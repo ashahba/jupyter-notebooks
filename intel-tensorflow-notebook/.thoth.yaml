@@ -3,7 +3,7 @@ tls_verify: false
 requirements_format: pipenv
 
 runtime_environments:
-  - name: ubi8
+  - name: python36
     operating_system:
       name: ubi
       version: "8"
