@@ -1,0 +1,61 @@
+{
+    "kind": "List",
+    "apiVersion": "v1",
+    "items": [
+        {
+            "kind": "ImageStream",
+            "apiVersion": "image.openshift.io/v1",
+            "metadata": {
+                "name": "intel-aikit-notebook",
+                "labels": {
+                    "build": "intel-aikit-notebook",
+                    "opendatahub.io/notebook-image": "true"
+                }
+            },
+            "spec": {
+                "lookupPolicy": {
+                    "local": true
+                }
+            }
+        },
+        {
+            "kind": "BuildConfig",
+            "apiVersion": "build.openshift.io/v1",
+            "metadata": {
+                "name": "intel-aikit-notebook",
+                "labels": {
+                    "build": "intel-aikit-notebook"
+                }
+            },
+            "spec": {
+                "triggers": [
+                    {
+                        "type": "ConfigChange"
+                    },
+                    {
+                        "type": "ImageChange"
+                    }
+                ],
+                "source": {
+                    "type": "Git",
+                    "git": {
+                        "uri": "https://github.com/ashahba/s2i-python-anaconda-base",
+                        "ref": "ashahba/intel-aikit-v2"
+                    }
+                },
+                "strategy": {
+                    "type": "Docker",
+                    "dockerStrategy": {
+                        "dockerfilePath": "Dockerfile.intel-aikit"
+                    }
+                },
+                "output": {
+                    "to": {
+                        "kind": "ImageStreamTag",
+                        "name": "intel-aikit-notebook:v0.0.1"
+                    }
+                }
+            }
+        }
+    ]
+}

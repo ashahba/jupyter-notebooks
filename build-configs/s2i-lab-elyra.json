@@ -1,0 +1,62 @@
+{
+    "kind": "List",
+    "apiVersion": "v1",
+    "items": [
+        {
+            "kind": "ImageStream",
+            "apiVersion": "image.openshift.io/v1",
+            "metadata": {
+                "name": "s2i-lab-elyra",
+                "labels": {
+                    "build": "s2i-lab-elyra",
+                    "opendatahub.io/notebook-image": "true"
+                }
+            },
+            "spec": {
+                "lookupPolicy": {
+                    "local": true
+                }
+            }
+        },
+        {
+            "kind": "BuildConfig",
+            "apiVersion": "build.openshift.io/v1",
+            "metadata": {
+                "name": "s2i-lab-elyra",
+                "labels": {
+                    "build": "s2i-lab-elyra"
+                }
+            },
+            "spec": {
+                "triggers": [
+                    {
+                        "type": "ConfigChange"
+                    },
+                    {
+                        "type": "ImageChange"
+                    }
+                ],
+                "source": {
+                    "type": "Git",
+                    "git": {
+                        "uri": "https://github.com/kkasravi/elyra",
+                        "ref": "kkasravi/v2.2.2"
+                    },
+                    "contextDir": "etc/docker/elyra"
+                },
+                "strategy": {
+                    "type": "Docker",
+                    "dockerStrategy": {
+                        "dockerfilePath": "Dockerfile"
+                    }
+                },
+                "output": {
+                    "to": {
+                        "kind": "ImageStreamTag",
+                        "name": "s2i-lab-elyra:v2.2.2"
+                    }
+                }
+            }
+        }
+    ]
+}
