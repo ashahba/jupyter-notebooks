@@ -15,7 +15,37 @@
             "spec": {
                 "lookupPolicy": {
                     "local": true
-                }
+                },
+                "tags": [
+                    {
+                        "annotations": {
+                            "openshift.io/imported-from": "quay.io/thoth-station/s2i-lab-elyra"
+                        },
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "quay.io/thoth-station/s2i-lab-elyra:v0.0.6"
+                        },
+                        "importPolicy": {},
+                        "name": "v0.0.6",
+                        "referencePolicy": {
+                            "type": "Source"
+                        }
+                    },
+                    {
+                        "annotations": {
+                            "openshift.io/imported-from": "quay.io/thoth-station/s2i-lab-elyra"
+                        },
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "quay.io/thoth-station/s2i-lab-elyra:v0.0.7"
+                        },
+                        "importPolicy": {},
+                        "name": "v0.0.7",
+                        "referencePolicy": {
+                            "type": "Source"
+                        }
+                    }
+                ]
             }
         },
         {
@@ -39,21 +69,69 @@
                 "source": {
                     "type": "Git",
                     "git": {
-                        "uri": "https://github.com/kkasravi/elyra",
-                        "ref": "kkasravi/v2.2.2"
-                    },
-                    "contextDir": "etc/docker/elyra"
+                        "uri": "https://github.com/kkasravi/s2i-lab-elyra",
+                        "ref": "kkasravi/v0.0.8"
+                    }
                 },
                 "strategy": {
-                    "type": "Docker",
-                    "dockerStrategy": {
-                        "dockerfilePath": "Dockerfile"
+                    "type": "Source",
+                    "sourceStrategy": {
+                        "from": {
+                            "kind": "ImageStreamTag",
+                            "name": "s2i-minimal-py38-notebook:v0.0.14"
+                        },
+                        "env": [
+                          {
+                            "name": "JUPYTER_ENABLE_LAB",
+                            "value": "true"
+                          },
+                          {
+                            "name": "ENABLE_MICROPIPENV",
+                            "value": "1"
+                          },
+                          {
+                            "name": "CRIO_RUNTIME",
+                            "value": "true"
+                          },
+                          {
+                            "name": "THAMOS_RUNTIME_ENVIRONMENT",
+                            "value": "python38"
+                          },
+                          {
+                            "name": "THOTH_ADVISE",
+                            "value": "0"
+                          },
+                          {
+                            "name": "THOTH_ERROR_FALLBACK",
+                            "value": "1"
+                          },
+                          {
+                            "name": "THOTH_DRY_RUN",
+                            "value": "1"
+                          },
+                          {
+                            "name": "THAMOS_DEBUG",
+                            "value": "0"
+                          },
+                          {
+                            "name": "THAMOS_VERBOSE",
+                            "value": "1"
+                          },
+                          {
+                            "name": "THOTH_PROVENANCE_CHECK",
+                            "value": "0"
+                          },
+                          {
+                            "name": "GIT_REPO_NAME",
+                            "value": "s2i-lab-elyra"
+                          }
+                        ]
                     }
                 },
                 "output": {
                     "to": {
                         "kind": "ImageStreamTag",
-                        "name": "s2i-lab-elyra:v2.2.2"
+                        "name": "s2i-lab-elyra:v0.0.8"
                     }
                 }
             }
