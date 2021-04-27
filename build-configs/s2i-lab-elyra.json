@@ -86,7 +86,7 @@
                             "value": "true"
                           },
                           {
-                            "name": "ENABLE_MICROPIPENV",
+                            "name": "ENABLE_PIPENV",
                             "value": "1"
                           },
                           {
