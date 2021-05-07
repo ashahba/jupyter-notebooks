@@ -40,7 +40,7 @@
                     "type": "Git",
                     "git": {
                         "uri": "https://github.com/ashahba/s2i-python-anaconda-base",
-                        "ref": "ashahba/intel-aikit-v2"
+                        "ref": "ashahba/intel-aikit-v3"
                     }
                 },
                 "strategy": {
