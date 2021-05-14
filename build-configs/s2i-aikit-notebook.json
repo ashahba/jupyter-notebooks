@@ -1,0 +1,91 @@
+{
+    "kind": "List",
+    "apiVersion": "v1",
+    "items": [
+        {
+            "kind": "ImageStream",
+            "apiVersion": "image.openshift.io/v1",
+            "metadata": {
+                "name": "s2i-aikit-notebook",
+                "labels": {
+                    "build": "s2i-aikit-notebook",
+                    "opendatahub.io/notebook-image": "true"
+                }
+            },
+            "spec": {
+                "lookupPolicy": {
+                    "local": true
+                }
+            }
+        },
+        {
+            "kind": "BuildConfig",
+            "apiVersion": "build.openshift.io/v1",
+            "metadata": {
+                "name": "s2i-aikit-notebook",
+                "labels": {
+                    "build": "s2i-aikit-notebook"
+                }
+            },
+            "spec": {
+                "triggers": [
+                    {
+                        "type": "ConfigChange"
+                    },
+                    {
+                        "type": "ImageChange"
+                    }
+                ],
+                "source": {
+                    "type": "Git",
+                    "git": {
+                        "uri": "https://github.com/kkasravi/jupyter-notebooks",
+                        "ref": "kkasravi/intel-tensorflow"
+                    },
+                    "contextDir": "aikit-notebook"
+                },
+                "strategy": {
+                    "type": "Source",
+                    "sourceStrategy": {
+                        "from": {
+                            "kind": "ImageStreamTag",
+                            "name": "s2i-minimal-notebook:v0.0.13"
+                        },
+                        "env": [
+                          {
+                            "name": "ENABLE_PIPENV",
+                            "value": "0"
+                          },
+                          {
+                            "name": "MICROPIPENV",
+                            "value": "1"
+                          },
+                          {
+                            "name": "THOTH_ADVISE",
+                            "value": "0"
+                          },
+                          {
+                            "name": "THOTH_DRY_RUN",
+                            "value": "0"
+                          },
+                          {
+                            "name": "THOTH_FROM_MASTER",
+                            "value": "0"
+                          },
+                          {
+                            "name": "THOTH_ERROR_FALLBACK",
+                            "value": "1"
+                          }
+                        ]
+                    }
+                },
+                "output": {
+                    "to": {
+                        "kind": "ImageStreamTag",
+                        "name": "s2i-aikit-notebook:v0.0.1"
+                    }
+                }
+            }
+        }
+    ]
+}

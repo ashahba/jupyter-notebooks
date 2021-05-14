@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+daal = ">=2021"
+daal4py = ">=2021"
+intel-openmp = ">=2021"
+intel-tensorflow = ">=2.4"
+lpot = ">=1.3"
+mkl = ">=2021"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"

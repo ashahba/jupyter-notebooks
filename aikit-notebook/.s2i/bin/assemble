@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -eox pipefail
+
+rm -rf /opt/app-root/src/.s2i
+
+# Run the original Python S2I assemble script to install packages.
+
+/usr/libexec/s2i/assemble
+
+pip install "daal>=2021" "daal4py>=2021" "intel-openmp>=2021" "intel-tensorflow>=2.4" "lpot>=1.3" "mkl>=2021"
+
+fix-permissions /opt/app-root
