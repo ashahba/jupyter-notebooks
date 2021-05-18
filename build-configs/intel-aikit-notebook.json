@@ -39,8 +39,8 @@
                 "source": {
                     "type": "Git",
                     "git": {
-                        "uri": "https://github.com/ashahba/s2i-python-anaconda-base",
-                        "ref": "ashahba/intel-aikit-v3"
+                        "uri": "https://github.com/kkasravi/s2i-minimal-notebook",
+                        "ref": "s2i-intel-aikit-miniconda"
                     }
                 },
                 "strategy": {
