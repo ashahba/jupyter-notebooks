@@ -21,3 +21,9 @@ intel-aikit-notebook: intel-aikit-notebook.json
 	kubectl get buildconfig $@ 2>/dev/null && kubectl delete buildconfig $@ || exit 0
 	cat $@.json | yq r - -P items[0] | kubectl apply -f -
 	cat $@.json | yq r - -P items[1] | kubectl apply -f -
+
+kam-aikit-notebook: kam-aikit-notebook.json
+	kubectl get imagestream $@ 2>/dev/null && kubectl delete imagestream $@ || exit 0
+	kubectl get buildconfig $@ 2>/dev/null && kubectl delete buildconfig $@ || exit 0
+	cat $@.json | yq r - -P items[0] | kubectl apply -f -
+	cat $@.json | yq r - -P items[1] | kubectl apply -f -

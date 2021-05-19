@@ -6,9 +6,9 @@
             "kind": "ImageStream",
             "apiVersion": "image.openshift.io/v1",
             "metadata": {
-                "name": "intel-aikit-notebook",
+                "name": "kam-aikit-notebook",
                 "labels": {
-                    "build": "intel-aikit-notebook",
+                    "build": "kam-aikit-notebook",
                     "opendatahub.io/notebook-image": "true"
                 }
             },
@@ -22,9 +22,9 @@
             "kind": "BuildConfig",
             "apiVersion": "build.openshift.io/v1",
             "metadata": {
-                "name": "intel-aikit-notebook",
+                "name": "kam-aikit-notebook",
                 "labels": {
-                    "build": "intel-aikit-notebook"
+                    "build": "kam-aikit-notebook"
                 }
             },
             "spec": {
@@ -39,10 +39,8 @@
                 "source": {
                     "type": "Git",
                     "git": {
-                        #"uri": "https://github.com/kkasravi/s2i-minimal-notebook",
-                        #"ref": "s2i-intel-aikit-miniconda"
-                        "uri": "https://github.com/ashahba/s2i-minimal-notebook",
-                        "ref": "ashahba/s2i-intel-aikit-miniconda"
+                        "uri": "https://github.com/kkasravi/s2i-minimal-notebook",
+                        "ref": "s2i-intel-aikit-miniconda"
                     }
                 },
                 "strategy": {
@@ -54,7 +52,7 @@
                 "output": {
                     "to": {
                         "kind": "ImageStreamTag",
-                        "name": "intel-aikit-notebook:v0.0.1"
+                        "name": "kam-aikit-notebook:v0.0.1"
                     }
                 }
             }
