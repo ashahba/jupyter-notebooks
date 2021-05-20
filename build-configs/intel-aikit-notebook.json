@@ -42,7 +42,7 @@
                         #"uri": "https://github.com/kkasravi/s2i-minimal-notebook",
                         #"ref": "s2i-intel-aikit-miniconda"
                         "uri": "https://github.com/ashahba/s2i-minimal-notebook",
-                        "ref": "ashahba/s2i-intel-aikit-miniconda"
+                        "ref": "ashahba/s2i-intel-aikit-miniconda-tools"
                     }
                 },
                 "strategy": {
